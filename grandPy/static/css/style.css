@@ -1,0 +1,229 @@
+/*Police*/
+@font-face
+{
+        font-family: 'FFF_Tusj';
+        src: url('../polices/FFF_Tusj.ttf');
+
+        font-weight: normal;
+        font-style: normal;
+}
+
+@font-face
+{
+        font-family: 'Pacifico';
+        src: url('../polices/Pacifico.ttf');
+
+        font-weight: normal;
+        font-style: normal;
+}
+
+@font-face
+{
+        font-family: 'Rubik.ttf';
+        src: url('../polices/Rubik.ttf');
+
+        font-weight: normal;
+        font-style: normal;
+}
+
+/*generic classes*/
+h2
+{
+	font-size: 1.8em;
+    font-family: 'Pacifico', Arial, serif;
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow: 4px 4px 4px black;
+}
+
+h1
+{
+	font-size: 2em;
+    font-family: 'FFF_Tusj', Arial, serif;
+    font-weight: bold;
+
+    color: red;
+
+    text-shadow: 4px 4px 4px black;
+    text-transform: uppercase;
+}
+
+.center
+{
+	margin: auto;
+}
+
+/*-----Page-----*/
+
+/*###bloc page###*/
+#block_page
+{
+	display: flex;
+	flex-direction: column;
+	width: auto;
+    margin: auto;
+}
+
+body
+{
+	background: url(../images/fond.jpg);
+
+}
+
+
+/*###header###*/
+header
+{
+	/*flex box parameter*/
+	display:  flex;
+	flex-direction: row;
+	justify-content: center;
+
+	opacity: 0.4;
+	margin: auto;
+	background-color: white; 
+
+	width: 100%;
+
+	/*bordure*/
+    border: 4px inset silver;
+    border-radius: 20px;
+
+}
+
+#citation
+{
+	/*alignement*/
+	float: left;
+	align-self: flex-end;
+
+	/*text*/
+	font-size: 1em;
+    font-family: 'Pacifico', Arial, serif;
+    font-weight: bold;
+
+    color: black;
+
+    text-shadow: 4px 4px 4px black;
+}
+
+
+/*###chatBox###*/
+#chat_box
+{
+	/*flexbox parameter*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	margin: auto;
+	margin-top: 5em;
+	margin-bottom: 5em;
+
+	width: 70%;
+	height: 80%;
+
+	background-color: black;
+	opacity: 0.8;
+
+	/*border*/
+	border: 2px inset blue;
+	border-radius: 20px;	
+}
+
+#chat_banniere
+{
+	display:  flex;
+	flex-direction: row;
+
+	width: 71%;
+	height: 80px;
+
+	background-color: red;
+
+	font-size: 1.5em;
+    font-family: 'Pacifico', Arial, serif;
+    font-weight: bold;
+
+    color: black;
+    opacity: 0.6;
+
+    text-shadow: 4px 4px 4px black;
+
+    /*border*/
+	border-top-right-radius: 15px;
+}
+
+#conversation_screen
+{
+	display: flex;
+	flex-direction: column;
+
+	margin: auto;
+	margin-bottom: 4em;
+
+	padding-right: 6px;
+	padding-left: 6px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+
+	width: 70%;
+	height: 500px;
+	max-height: 500px;
+
+	background-color: white;
+
+	overflow: scroll;	
+}
+
+#chat_picture
+{
+	align-self: flex-start;
+	width: 80px;
+	height: 80px;
+}
+
+input
+{
+	margin-bottom: 4em;
+}
+
+.bubble_text
+{
+
+	width: 55%;
+
+	background: blue; 
+	color: black;
+
+	padding:10px 10px;
+
+	margin-bottom: 5px;
+	margin-top: 5px; 
+
+	border-radius:10px;
+
+	opacity: 0.9
+}
+
+
+/*###footer###*/
+footer
+{
+	display: flex;
+	flex-direction: column;
+
+	font-family: 'FFF_Tusj', Arial, serif;
+	
+	margin: auto;
+
+	font-size: 2em;
+    font-weight: bold;
+}
+
+.network_picture
+{
+	margin: auto;
+}
