@@ -2,33 +2,37 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="../static/css/style.css" />
+
+		<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+
 		<title>GrandPy bot</title>
 	</head>
 
 	<body>
 
-		<div id=block_page>
+		<div id='block_page'>
 			
 			<header>
-				<img src="../static/images/logo2.jpeg" alt="logo">
+				<img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="logo">
 				<h1>GrandPy Bot</h1>
-				<p id=citation>
+				<p id='citation'>
 					Raconte nous une histoire...
 				</p>
 			</header>
 
 			<section>
-				<div id=chat_box>
+				<div id='chat_box'>
 					<h2>Chatbox</h2>
 
 					<div id=chat_banniere>
-						<img id=chat_picture src="../static/images/logo2.jpeg" alt="logo">
+						<img id='chat_picture' 
+							src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="logo">
 						<p class="center">GrandPy Bot</p>
 					</div>
-					<div id=conversation_screen>
-
-					</div>
+					
+					<ul id='conversation_screen'>
+						<li class='bubble_text'>GrandPy: Bonjour!</li>
+					</ul>
 
 					<form>
 						<input type="text" name="userText" id="userText"
@@ -46,6 +50,8 @@
 			</footer>
 		
 		</div>
+
+		<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 	</body>
 
