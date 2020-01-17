@@ -29,14 +29,15 @@
 							src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="logo">
 						<p class="center">GrandPy Bot</p>
 					</div>
-					
+
 					<ul id='conversation_screen'>
-						<li class='bubble_text'>GrandPy: Bonjour!</li>
+
 					</ul>
 
-					<form>
+					<form onsubmit="collect_message(); return false;">
 						<input type="text" name="userText" id="userText"
-						placeholder="Taper votre demande" size=90% maxlength="100"/>
+							placeholder="Taper votre demande et appuyez sur entrer"
+							size=90% maxlength="100" />
 					</form>
 
 				</div>
@@ -50,6 +51,9 @@
 			</footer>
 		
 		</div>
+
+		<script src="{{ url_for('static', filename='js/message.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/grandPy.js') }}"></script>
 
 		<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
