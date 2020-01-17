@@ -13,8 +13,8 @@ class Test_Parser:
 
 			sentence = "bonjour grandpy connais tu l'adresse de la tour eiffel ?"
 			
-			print("\nin: " + sentence)
+			print("\n\nin: " + sentence)
 			filtredSentence = testing_parser.parser(sentence)
 
 			assert filtredSentence == "tour eiffel"
-			print("out: " + filtredSentence + "\n\n")
+			print("\nout: " + filtredSentence + "\n\n")

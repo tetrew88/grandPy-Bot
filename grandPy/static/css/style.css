@@ -138,8 +138,8 @@ header
 	display:  flex;
 	flex-direction: row;
 
-	width: 71%;
-	height: 80px;
+	width: 71.1%;
+	height: 90px;
 
 	background-color: red;
 
@@ -148,12 +148,33 @@ header
     font-weight: bold;
 
     color: black;
-    opacity: 0.6;
+    opacity: 0.8;
 
     text-shadow: 4px 4px 4px black;
 
     /*border*/
 	border-top-right-radius: 15px;
+
+	border: 3px inset blue;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+
+	border-bottom: none;
+}
+
+#chat_picture
+{
+	align-self: flex-start;
+
+	margin-left: 6px;
+	margin-top: 4px;
+
+	width: 12%;
+	height: 84%;
+
+	border: 3px outset white;
+	border-radius: 10px;
 }
 
 #conversation_screen
@@ -175,37 +196,60 @@ header
 
 	background-color: white;
 
-	overflow: scroll;	
+	overflow: auto;
+
+	border: 3px inset blue;
+	border-top: none;
+	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
-#chat_picture
+#conversation_screen li
 {
-	align-self: flex-start;
-	width: 80px;
-	height: 80px;
+	list-style: none;
 }
 
-input
-{
-	margin-bottom: 4em;
-}
 
 .bubble_text
 {
 
 	width: 55%;
+	min-height: 5%;
 
 	background: blue; 
 	color: black;
 
-	padding:10px 10px;
+	padding:2% 2%;
 
-	margin-bottom: 5px;
-	margin-top: 5px; 
+	margin-bottom: 2%;
+	margin-top: 2%; 
 
 	border-radius:10px;
 
-	opacity: 0.9
+	opacity: 0.9;
+
+	overflow: auto;
+
+	border: 1px inset red;
+}
+
+input
+{
+	border: 3px inset blue;
+	border-radius:10px;
+
+	margin-bottom: 3%;
+}
+
+.end_allign
+{
+	align-self: end;
+}
+
+.start_allign
+{
+	align-self: start;
 }
 
 
