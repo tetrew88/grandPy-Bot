@@ -36,4 +36,31 @@ function collect_message()
 	{
 		post_message("vous", text);
 	}
+
+	fetch('/ask',
+	{
+		method: "POST",
+		body: text,
+		headers:
+		{
+			'Content-Type': 'text/plain'
+		}
+	}).then(response => {
+		if (response.ok)
+		{
+			response.text()
+            .then(console.log)
+            .catch(error =>
+            {
+                console.error(error);
+            });
+    	}
+    	else 
+    	{
+    		console.error('server response : ' + response.status);
+    	}
+    }).catch(error =>
+    {
+    	console.error(error);
+	});
 }

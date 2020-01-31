@@ -4,8 +4,6 @@ function main()
 
 	let grandPy = new GrandPy();
 
-	let text = "";
-
 	grandPy.say_hello;
 }
 
