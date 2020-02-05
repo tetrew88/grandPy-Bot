@@ -11,8 +11,7 @@ class GrandPy
 		this.ask = "";
 
 		this.say_hello = say_hello(this);
-		this.get_response = get_ask(this);
-		this
+		this.get_answer = get_response(this);
 
 		function say_hello(obj)
 		{
@@ -21,9 +20,11 @@ class GrandPy
 			post_message('grandPy', obj.salutations[aleatoryNumber]);
 		}
 
-		function get_ask(obj, text)
+		function get_answer(obj)
 		{
-			obj.ask = text;
+			fetch("/answer")
+			.then(response => response.json())
+			.then(json => console.log(json))
 		}
 	}	
 }

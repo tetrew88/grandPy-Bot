@@ -26,7 +26,7 @@ function collect_message()
 {
 	const userInput = document.getElementById("userText");
 
-	text = userInput.value;
+	let text = userInput.value;
 
 	if(text == "")
 	{
@@ -40,11 +40,7 @@ function collect_message()
 	fetch('/ask',
 	{
 		method: "POST",
-		body: text,
-		headers:
-		{
-			'Content-Type': 'text/plain'
-		}
+		body: new FormData(document.getElementById("userInput"))
 	}).then(response => {
 		if (response.ok)
 		{
@@ -57,7 +53,7 @@ function collect_message()
     	}
     	else 
     	{
-    		console.error('server response : ' + response.status);
+    		console.error('server response: ' + response.status);
     	}
     }).catch(error =>
     {
