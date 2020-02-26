@@ -10,6 +10,8 @@
 
 	<body>
 
+		<script src="https://maps.google.com/maps/api/js?key=AIzaSyD3UanyjV5IphscC92cuW9Kx9R-FzVMyco" type="text/javascript"></script>
+
 		<div id='block_page'>
 			
 			<header>
@@ -36,8 +38,7 @@
 
 					<form id="userInput" method="post" onsubmit="collect_message(); return false;">
 						<input type="text" name="userText" id="userText"
-							placeholder="Taper votre demande et appuyez sur entrer"
-							size=70% maxlength="100" />
+							placeholder="Taper votre demande et appuyez sur entrer" />
 					</form>
 
 				</div>
@@ -52,10 +53,14 @@
 		
 		</div>
 
-		<script src="{{ url_for('static', filename='js/message.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/place.js') }}"></script>
+
 		<script src="{{ url_for('static', filename='js/grandPy.js') }}"></script>
 
+		<script src="{{ url_for('static', filename='js/message.js') }}"></script>
+
 		<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
 
 	</body>
 

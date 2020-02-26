@@ -1,15 +1,15 @@
 import sys
 
+import json
+
 from flask import Flask, render_template, request
 
 from grandPy.classes.parser import *
-from grandPy.classes.grandPy import *
+from grandPy.classes.place import *
 
 app = Flask(__name__)
+app.config.from_object('config')
 
-apiKey = 'AIzaSyD3UanyjV5IphscC92cuW9Kx9R-FzVMyco'
-
-answerDict = {"information":False, "adress":False, "map":False}
 
 @app.route('/')
 def index():
@@ -20,23 +20,22 @@ def index():
 def ask():
 
 	parser = Parser()
-	grandPy = GrandPy()
 
 	if request.method == 'POST':
 		
 		form = request.form
 		question = form['userText']
 
-
-		question = parser.parser(question)
-
-		answerDict["information"] = grandPy.collect_informations(question)
-
-		print(answerDict["information"])
-
-	return answerDict
+		keyword = parser.parser(question)
 
 
-@app.route('/answer', methods = ['GET'])
-def answer():
-	pass
+		place = Place(keyword)
+
+		place.collect_informations()
+
+		place.collect_longitude_and_latitude(app.config['API_KEY'])
+		
+
+		answer = {'placeName' : place.name, 'informations' : place.informations, 'longitude': place.longitude, 'latitude': place.latitude}
+
+	return json.dumps(answer)
