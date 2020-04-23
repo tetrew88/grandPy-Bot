@@ -19,6 +19,8 @@ def index():
 @app.route('/ask', methods = ['POST'])
 def ask():
 
+	answer = True
+
 	parser = Parser()
 
 	if request.method == 'POST':
@@ -28,14 +30,21 @@ def ask():
 
 		keyword = parser.parser(question)
 
+		if keyword != False:
+			place = Place(keyword)
 
-		place = Place(keyword)
+			answer = place.collect_localisation(app.config['API_KEY'])
 
-		place.collect_informations()
-
-		place.collect_longitude_and_latitude(app.config['API_KEY'])
+			answer = place.collect_informations()
+		else:
+			answer = False
 		
 
-		answer = {'placeName' : place.name, 'informations' : place.informations, 'longitude': place.longitude, 'latitude': place.latitude}
+		if answer != False:
+			answer = {'placeName' : place.name, 
+			'address' : place.address,
+			'informations' : place.informations, 
+			'longitude': place.longitude, 
+			'latitude': place.latitude}
 
 	return json.dumps(answer)

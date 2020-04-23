@@ -9,20 +9,17 @@ class GrandPy
 		this.informations = ["Voici quelque petite information sur le lieux: ", "Bon a savoir: "];
 		this.mapIntroductions = ["Je t'ai déssiner une petite carte: ", "voici une carte pour t'aider a trouver: "];
 		this.ask = "";
+	}
 
-		this.say_hello = say_hello(this);
-
-		function say_hello(obj)
-		{
-			let aleatoryNumber = aleatory(obj.salutations.length);
+	say_hello()
+	{
+		let aleatoryNumber = aleatory(this.salutations.length);
 			
-			let salutation =  obj.salutations[aleatoryNumber] + " " + obj.presentations[aleatoryNumber]
-			
-			post_message('grandPy', salutation);
-		}
+		let salutation =  this.salutations[aleatoryNumber] + " " + this.presentations[aleatoryNumber];
 
+		post_message("GrandPy", salutation);
+	}
 
-	}	
 }
 
 

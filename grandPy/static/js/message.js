@@ -1,3 +1,5 @@
+const chatZone = document.getElementById('conversation_screen');
+
 function post_message(senderName, message)
 {
 	const chatZone = document.getElementById('conversation_screen');
@@ -6,7 +8,7 @@ function post_message(senderName, message)
 
 	bubbleText.classList.add("bubble_text");
 
-	if(senderName == "grandPy")
+	if(senderName == "GrandPy")
 	{
 		bubbleText.classList.add("start_allign");	
 	}
@@ -37,115 +39,106 @@ function post_message(senderName, message)
 
 function collect_message()
 {
+	let grandPy = new GrandPy();
+
+	chatPicture = document.getElementById("chat_picture");
+
 	const userInput = document.getElementById("userText");
+
+	chatPicture.src = "static/images/loading.jpeg";
 
 	let text = userInput.value;
 
-	if(text == "")
+	if (text == "")
 	{
 		alert("Entrer une question");
 	}
+
 	else
 	{
 		post_message("vous", text);
-	}
 
-	fetch('/ask',
-	{
-		method: "POST",
-		body: new FormData(document.getElementById("userInput"))
-	}).then(response => 
-	{
-		if (response.ok)
+		fetch('/ask',
 		{
-			response.json()
-            .then(data => 
-            {
-            	let place = new Place(data["placeName"], data["informations"], data["longitude"], data["latitude"])
+			method: "POST",
+			body: new FormData(document.getElementById("userInput"))
+		})
+		.then(response => {
+			return response.json();
+		})
+	    .then(data => {
+	    	console.log(data)
+	    	
+	    	if(data != false)
+	    	{
+	    		let place = new Place(data["placeName"], 
+	    			data["address"], 
+	    			data["informations"], 
+	    			data["latitude"], 
+	    			data["longitude"]);
 
-            	post_answer(place);
-            })
-            .catch(error =>
-            {
-                console.error(error);
-            });
-    	}
-    	else 
-    	{
-    		console.error('server response: ' + response.status);
-    	}
-    }).catch(error =>
-    {
-    	console.error(error);
-	});
+	        	post_response(place);
+	        }
+
+	        else
+	        {
+	        	post_message("GrandPy", "Désoler une erreur c'est produite :/");
+	        }
+	    })
+	    .catch(error => {
+	        console.error(error);
+	    });
+	}
 }
 
-
-function post_answer(place)
+function post_response(place)
 {
-	grandPy = new GrandPy()
-
-	const chatZone = document.getElementById('conversation_screen');
-
-
+	let grandPy = new GrandPy();
+		
 	const bubbleText = document.createElement('li');
-
 	bubbleText.classList.add("bubble_text");
 	bubbleText.classList.add("start_allign");
+		
+	const content = document.createElement('ul');
+
+	const header = document.createElement('li');
+	header.textContent = ("GrandPy:");
+
+	const succes = document.createElement('li');
+	succes.textContent = "    " + grandPy.succesResponses[aleatory(grandPy.succesResponses.length)];
+
+	const adress = document.createElement('li');
+	adress.textContent = 'adresse: ' + place.address;
+
+	const informations = document.createElement('ul');
+	informations.textContent = grandPy.informations[aleatory(grandPy.informations.length)];
+
+	const informationsContent = document.createElement('li');
+	informationsContent.textContent = place.informations;
+
+	const mapIntroduction = document.createElement('li');
+	mapIntroduction.textContent = grandPy.mapIntroductions[aleatory(grandPy.mapIntroductions.length)];
 
 
-	const header = document.createElement('p');
+	informations.appendChild(informationsContent);
 
-	header.classList.add("messageHeader");
-	header.textContent = "grandPy: ";
+	content.appendChild(header);
+	content.appendChild(succes);
+	content.appendChild(adress);
+	content.appendChild(informations);
+	content.appendChild(informationsContent);
+	content.appendChild(mapIntroduction);
+	content.appendChild(map);
 
-
-	const content = document.createElement('p');
-
-
-	const introduction = document.createElement('p');
-	
-	introduction.classList.add('message');
-	introduction.textContent = grandPy.succesResponses[aleatory(grandPy.succesResponses.length)];
-
-
-	const informationsPresentation = document.createElement('p');
-	
-	informationsPresentation.classList.add('messageHeader');
-	informationsPresentation.textContent = grandPy.informations[aleatory(grandPy.informations.length)];
-
-
-	const informations = document.createElement('p');
-
-	informations.classList.add('message');
-	informations.textContent = place["informations"];
-
-	informationsPresentation.appendChild(informations);
-
-
-	const mapPresentation = document.createElement('p');
-
-	mapPresentation.classList.add('messageHeader');
-	mapPresentation.textContent = grandPy.mapIntroductions[aleatory(grandPy.mapIntroductions.length)];
-
-
-	let mapSection = document.createElement("p");
-
-	mapSection.classList.add('map');
-
-	mapPresentation.appendChild(mapSection);
-
-	content.appendChild(introduction);
-	content.appendChild(informationsPresentation);
-	content.appendChild(mapPresentation);
-
-	bubbleText.appendChild(header);
 	bubbleText.appendChild(content);
 
 	chatZone.appendChild(bubbleText);
 
+	map = document.getElementById('map');
+	map.style.width = '600px';
+	map.style.height = '400px';
+
 	initMap(place);
 
 	chatZone.scrollTop = chatZone.scrollHeight;
-
 }
