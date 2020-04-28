@@ -3,8 +3,8 @@
 class Parser:
 
 	def __init__(self):
-		self.salutation = ['bonjour', 'grandpy', 'salut', 'hey', 'coucou', 'papy', 'grand', 'père']
-		self.question = ['peux-tu', 'connais', 'sais', 'quoi', 'dire', 'sujet', 'ou', 'oû']
+		self.salutation = ['bonjour', 'grandpy', 'salut', 'hey', 'coucou', 'papy', 'grand', 'père', 'py', 'grandpy!']
+		self.question = ['peux-tu', 'connais', 'sais', 'quoi', 'dire', 'sujet', 'ou', 'oû', 'trouve']
 		self.keywords = ['rue', 'adresse', "l'adresse", 'endroit', "lieu", "place", "avenue", "coordonnées"]
 		self.ponctuation = ["?", "." , "!", ","]
 		

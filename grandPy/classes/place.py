@@ -54,8 +54,6 @@ class Place():
 
 
 	def collect_localisation(self, apiKey):
-		"""https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}"""
-		
 
 		url = ('https://maps.googleapis.com/maps/api/place/textsearch/json?query={}&key={}'
            .format(self.name, apiKey))
@@ -63,11 +61,7 @@ class Place():
 		try:
 			response = requests.get(url)
 
-			print(response)
-
 			response = response.json()
-
-			print(response)
 
 			response = response['results'][0]
 
@@ -79,7 +73,6 @@ class Place():
 			self.latitude = localisation['lng']
 
 		except:
-			print("22222222")
 			return False
 
 

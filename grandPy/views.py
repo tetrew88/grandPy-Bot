@@ -18,7 +18,6 @@ def index():
 
 @app.route('/ask', methods = ['POST'])
 def ask():
-
 	answer = True
 
 	parser = Parser()

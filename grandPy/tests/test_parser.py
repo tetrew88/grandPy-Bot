@@ -17,4 +17,3 @@ class Test_Parser:
 			filtredSentence = testing_parser.parser(sentence)
 
 			assert filtredSentence == "tour eiffel"
-			print("\nout: " + filtredSentence + "\n\n")
