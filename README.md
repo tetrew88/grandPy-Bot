@@ -4,7 +4,13 @@
   > _Grandpy est une applications web permettant recherchez un lieu et obtenir des information le concernant._
   
  **Pré-requis**
-  > _Une simple connection internet_ 
+  >_liste:_
+
+	*Une simple connection internet
+ 	*Bibliothèque flask
+  	*Bibliothèque wikipedia
+  	*Bibliothèque json
+  	*Bibliothèque requests
   
 **Installation**
   > _L'installation ce fait en seulement 3 étapes:_
