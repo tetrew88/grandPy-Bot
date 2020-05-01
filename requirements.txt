@@ -1,1 +1,4 @@
 wikipedia
+requests
+flask
+gunicorn

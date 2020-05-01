@@ -1,2 +1,2 @@
-web: gunicorn grandpy:app
+web: gunicorn grandPy:app
 init: FLASK_APP=run.py

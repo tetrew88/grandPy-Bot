@@ -71,6 +71,8 @@ function collect_message()
 	    	
 	    	if(data != false)
 	    	{
+	    		chatPicture.src = "static/images/succes.jpeg";
+	    		
 	    		let place = new Place(data["placeName"], 
 	    			data["address"], 
 	    			data["informations"], 
