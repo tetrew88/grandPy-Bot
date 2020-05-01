@@ -279,12 +279,12 @@ input
 
 .end_allign
 {
-	align-self: end;
+	align-self: flex-end;
 }
 
 .start_allign
 {
-	align-self: start;
+	align-self: flex-start;
 }
 
 
