@@ -63,6 +63,7 @@ h1
 	display: flex;
 	flex-direction: column;
 	width: auto;
+	height: 100%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
     margin: auto;
 }
 
@@ -72,13 +73,19 @@ body
 
 }
 
+#logo
+{
+	width: 90px;
+	height: 90px;
+
+	border-radius: 15px;
+}
 
 /*###header###*/
 header
 {
 	/*flex box parameter*/
 	display:  flex;
-	flex-direction: row;
 	justify-content: center;
 
 	opacity: 0.4;
@@ -96,7 +103,7 @@ header
 #citation
 {
 	/*alignement*/
-	float: left;
+	float: right;
 	align-self: flex-end;
 
 	/*text*/
@@ -172,7 +179,7 @@ header
 	margin-left: 6px;
 	margin-top: 4px;
 
-	width: 12%;
+	width: 15%;
 	height: 84%;
 
 	border: 3px outset white;
@@ -253,7 +260,7 @@ header
 	height: 0;
 	width: 0;
 
-	margin: center;
+	margin: auto;
 
 	background: black;
 
@@ -315,4 +322,182 @@ ul ul
 .network_picture
 {
 	margin: auto;
+}
+
+/*###responsive part###*/
+
+@media all and (max-device-width: 480px)
+{
+	h2
+	{
+		font-size: 1.3em;
+	    font-family: 'Pacifico', Arial, serif;
+	    font-weight: bold;
+
+	    color: white;
+
+	    text-shadow: 4px 4px 4px black;
+	}
+
+	h1
+	{
+		font-size: 1.4em;
+	    font-family: 'FFF_Tusj', Arial, serif;
+	    font-weight: bold;
+
+	    color: red;
+
+	    text-shadow: 4px 4px 4px black;
+	    text-transform: uppercase;
+	}
+
+	#logo
+	{
+		width: 55px;
+		height: 45px;
+	}
+
+
+	#citation
+	{
+		/*alignement*/
+		float: left;
+		align-self: flex-end;
+
+		/*text*/
+		font-size: 0.7em;
+	    font-family: 'Pacifico', Arial, serif;
+	    font-weight: bold;
+
+	    color: black;
+
+	    text-shadow: 4px 4px 4px black;
+	}
+
+
+	#chat_banniere
+	{
+		display:  flex;
+		flex-direction: row;
+
+		width: 71.1%;
+		height: 90px;
+
+		background-color: red;
+
+		font-size: 1em;
+	    font-family: 'Pacifico', Arial, serif;
+	    font-weight: bold;
+
+	    color: black;
+	    opacity: 0.8;
+
+	    text-shadow: 4px 4px 4px black;
+	    text-align: center;
+
+	    /*border*/
+		border-top-right-radius: 15px;
+
+		border: 3px inset blue;
+
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+
+		border-bottom: none;
+	}
+
+
+	#chat_picture
+	{
+		align-self: flex-start;
+
+		margin-left: 6px;
+		margin-top: 4px;
+
+		width: 19%;
+		height: 84%;
+
+		border: 3px outset white;
+		border-radius: 10px;
+	}
+
+
+    #chat_box
+	{
+		font-size: 1em;
+
+		/*flexbox parameter*/
+		display: flex;
+		flex-direction: column;
+		
+		align-items: center;
+
+		margin: auto;
+		margin-top: 5em;
+		margin-bottom: 5em;
+
+		width: 100%;
+		height: 80%;
+
+		background-color: black;
+		opacity: 0.8;
+
+		/*border*/
+		border: 2px inset blue;
+		border-radius: 20px;	
+	}
+
+
+	#conversation_screen
+	{
+		display: flex;
+		flex-direction: column;
+
+		margin: auto;
+		margin-bottom: 4%;
+
+		padding-right: 6px;
+		padding-left: 6px;
+		padding-bottom: 5px;
+		padding-top: 5px;
+
+		width: 70%;
+		height: 300px;
+		max-height: 300px;
+
+		background-color: white;
+
+		overflow: auto;
+
+		border: 3px inset blue;
+		border-top: none;
+		
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+
+	.bubble_text
+	{
+		width: auto;
+		min-width: 15%;
+		max-width: 99%;
+
+		height:  auto;
+
+		background: blue; 
+		color: black;
+
+		padding:2% 2%;
+
+		margin-bottom: 2%;
+		margin-top: 2%; 
+
+		border-radius:10px;
+
+		opacity: 0.9;
+
+		border: 1px inset red;
+
+	}
 }

@@ -15,7 +15,8 @@ class GrandPy
 	{
 		let aleatoryNumber = aleatory(this.salutations.length);
 			
-		let salutation =  this.salutations[aleatoryNumber] + " " + this.presentations[aleatoryNumber];
+		let salutation =  this.salutations[aleatoryNumber] + " " + 
+			this.presentations[aleatoryNumber];
 
 		post_message("GrandPy", salutation);
 	}

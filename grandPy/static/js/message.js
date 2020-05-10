@@ -84,6 +84,7 @@ function collect_message()
 
 	        else
 	        {
+	        	chatPicture.src = "static/images/error.jpeg";
 	        	post_message("GrandPy", "Désoler une erreur c'est produite :/");
 	        }
 	    })
@@ -107,12 +108,12 @@ function post_response(place)
 	header.textContent = ("GrandPy:");
 
 	const succes = document.createElement('li');
-	succes.textContent = "    " + grandPy.succesResponses[aleatory(grandPy.succesResponses.length)];
+	succes.textContent = grandPy.succesResponses[aleatory(grandPy.succesResponses.length)];
 
 	const adress = document.createElement('li');
 	adress.textContent = 'adresse: ' + place.address;
 
-	const informations = document.createElement('ul');
+	const informations = document.createElement('li');
 	informations.textContent = grandPy.informations[aleatory(grandPy.informations.length)];
 
 	const informationsContent = document.createElement('li');
@@ -137,8 +138,17 @@ function post_response(place)
 	chatZone.appendChild(bubbleText);
 
 	map = document.getElementById('map');
-	map.style.width = '600px';
-	map.style.height = '400px';
+
+	if (window.matchMedia("(max-device-width: 480px)").matches) 
+	{
+		map.style.width = '180px';
+		map.style.height = '180px';
+	} 
+	else
+	{
+		map.style.width = '600px';
+		map.style.height = '400px';
+	}
 
 	initMap(place);
 

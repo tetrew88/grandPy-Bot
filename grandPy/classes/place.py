@@ -21,6 +21,7 @@ class Place():
 
 	
 	def collect_informations(self):
+		"""method for collect information about the place"""
 
 		"""
 			wikiRequest = requests.Session()
@@ -43,8 +44,10 @@ class Place():
 		"""
 
 		try:
+			# set language to wikipedia library
 			wikipedia.set_lang("fr")
 
+			#collect 1 sentence of information about the place
 			self.informations = wikipedia.summary(self.name, sentences = 1)
 		
 		except:
@@ -54,15 +57,20 @@ class Place():
 
 
 	def collect_localisation(self, apiKey):
+		"""method for collect localisation of the class"""
 
+		# query url
 		url = ('https://maps.googleapis.com/maps/api/place/textsearch/json?query={}&key={}'
            .format(self.name, apiKey))
 
 		try:
+			# do request to url
 			response = requests.get(url)
 
+			# received response and convert her
 			response = response.json()
 
+			# collect localisation and adress from response
 			response = response['results'][0]
 
 			self.address = response["formatted_address"]

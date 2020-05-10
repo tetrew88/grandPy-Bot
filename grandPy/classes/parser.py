@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 class Parser:
-
+	
 	def __init__(self):
 		self.salutation = ['bonjour', 'grandpy', 'salut', 'hey', 'coucou', 'papy', 'grand', 'père', 'py', 'grandpy!']
 		self.question = ['peux-tu', 'connais', 'sais', 'quoi', 'dire', 'sujet', 'ou', 'oû', 'trouve']

@@ -48,9 +48,9 @@ def test_ask(monkeypatch):
 
 	def parser_response(*args, **kwargs):
 		return "tour eiffel"
-
-	def get_localisation(*args, **kwargs):
-		return LocalisationResponse()
+ 
+def get_localisation(*args, **kwargs):
+	return LocalisationResponse()
 
 	def get_informations(*args, **kwargs):
 		return "abc"
